@@ -46,6 +46,9 @@ class Vector3 {
     add(other) {
         // Insert your code here.
         // This function should change this vector (this.elements) and not create a new vector.
+        for (var i = 0; i < 3; i++){
+          this.elements[i] += other.elements[i];
+        }
 
         // Don't delete the return statement.
         return this;
@@ -59,6 +62,10 @@ class Vector3 {
         // Insert your code here.
         // This function should change this vector (this.elements) and not create a new vector.
 
+        for (var i = 0; i < 3; i++){
+          this.elements[i] -= other.elements[i];
+        }
+
         // Don't delete the return statement.
         return this;
     };
@@ -70,6 +77,10 @@ class Vector3 {
     div(scalar) {
         // Insert your code here.
         // This function should change this vector (this.elements) and not create a new vector.
+
+        for (var i = 0; i < 3; i++){
+          this.elements[i] *= 1/scalar;
+        }
 
         // Don't delete the return statement.
         return this;
@@ -83,6 +94,10 @@ class Vector3 {
         // Insert your code here.
         // This function should change this vector (this.elements) and not create a new vector.
 
+        for (var i = 0; i < 3; i++){
+          this.elements[i] *= scalar;
+        }
+
         // Don't delete the return statement.
         return this;
     };
@@ -94,6 +109,10 @@ class Vector3 {
     static dot(other1, other2) {
         // Insert your code here.
         let d = 0; // Modify this line to calculate this vector's magnitude.
+
+        for (var i = 0; i < 3; i++){
+          d += other1.elements[i] * other2.elements[i];
+        }
 
         // Don't delete the return statement.
         return d;
@@ -108,6 +127,13 @@ class Vector3 {
         // This function should create and return a new vector.
         let v3 = new Vector3(); // Modify this line to calculate cross product between other1 and other2.
 
+        var v1 = other1.elements;
+        var v2 = other2.elements;
+
+        v3.elements[0] = (v1[1]*v2[2]) - (v1[2]*v2[1]);
+        v3.elements[1] = (v1[2]*v2[0]) - (v1[0]*v2[2]);
+        v3.elements[2] = (v1[0]*v2[1]) - (v1[1]*v2[0]);
+
         // Don't delete the return statement.
         return v3;
     }
@@ -120,6 +146,11 @@ class Vector3 {
         // Insert your code here.
         let m = 0; // Modify this line to calculate this vector's magnitude.
 
+        for(var i = 0; i < 3; i++){
+           m += Math.pow(this.elements[i], 2);
+        }
+        m = Math.pow(m, 0.5);
+
         // Don't delete the return statement.
         return m;
     };
@@ -131,6 +162,7 @@ class Vector3 {
     normalize() {
         // Insert your code here.
         // This function should change this vector (this.elements) and not create a new vector.
+        this.div(this.magnitude());
 
         // Don't delete the return statement.
         return this;

@@ -14,28 +14,36 @@
 
     <br><br>
     <label for="name">v1: x</label>
-    <input type="text" id="v1x" name="v1x" required minlength="4" maxlength="8" size="10">
+      <input type="text" id="v1x" name="v1x" required minlength="4" maxlength="8" size="10">
     <label for="name">y</label>
-    <input type="text" id="v1y" name="v1y" required minlength="4" maxlength="8" size="10">
+      <input type="text" id="v1y" name="v1y" required minlength="4" maxlength="8" size="10">
 
     <br>
     <label for="name">v2: x</label>
-    <input type="text" id="v2x" name="v2x" required minlength="4" maxlength="8" size="10">
+      <input type="text" id="v2x" name="v2x" required minlength="4" maxlength="8" size="10">
     <label for="name">y</label>
-    <input type="text" id="v2y" name="v2y" required minlength="4" maxlength="8" size="10">
+      <input type="text" id="v2y" name="v2y" required minlength="4" maxlength="8" size="10">
     
     <br>
     <input type="button" value="Draw" onclick="handleDrawEvent()"></input>
 
     <br><br>
-    <label for="pet-select">Operation:</label>
-      <select name="pets" id="pet-select">
-          <option value="">--Please choose an option--</option>
+    <label for="operation-select">Operation:</label>
+      <select name="operation-select" id="operation-select">
           <option value="add">Add</option>
-          <option value="sub">Sub</option>
+          <option value="sub">Subtract</option>
+          <option value="div">Divide</option>
+          <option value="mul">Multiply</option>
+          <option value="magnitude">Magnitude</option>
+          <option value="normalize">Normalize</option>
+          <option value="angle-between">Angle Between</option>
+          <option value="area">Area</option>
       </select>
+    <label for="name">Scalar:</label>
+      <input type="text" id="scalar" name="scalar" required minlength="4" maxlength="8" size="10">
 
-    <input type="button" value="Draw" onclick="handleDrawEvent()"></input>
+    <br>
+    <input type="button" value="Draw" onclick="handleDrawOperationEvent()"></input>
 
   </body>
 </html>
