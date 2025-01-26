@@ -33,6 +33,7 @@ let g_selectedColor = [1.0, 1.0, 1.0, 1.0];
 let g_selectedSize = 10.0;
 let g_selectedSegments = 20.0;
 let g_selectedType = POINT;
+let g_rescale = 1.0;
 
 // var g_points = [];  // The array for the position of a mouse press
 // var g_colors = [];  // The array to store the color of a point
@@ -89,6 +90,7 @@ function addActionsForHtmlUI(){
   document.getElementById('clear').onclick = function() { g_shapesList = []; renderAllShapes(); }
   document.getElementById('green').onclick = function() { g_selectedColor = [0.0, 1.0, 0.0, 1.0]; }
   document.getElementById('red').onclick = function() { g_selectedColor = [1.0, 0.0, 0.0, 1.0]; }
+  document.getElementById('mirror').onclick = function() { mirrorAllShapes(); renderAllShapes(); }
 
   document.getElementById('point').onclick = function() { g_selectedType = POINT; }
   document.getElementById('triangle').onclick = function() { g_selectedType = TRIANGLE; }
@@ -170,6 +172,20 @@ function renderAllShapes(){
   var len = g_shapesList.length;
   for(var i = 0; i < len; i++) {
     g_shapesList[i].render();
+  }
+}
+
+function mirrorAllShapes(){
+  // Basically, for every shape, add its mirror image
+  // var len = g_shapesList.length;
+  // for(var i = 0; i < len; i++) {
+  //   g_shapesList[i].render();
+  // }
+
+  var len = g_shapesList.length;
+  for (i = 0; i < len; i++){
+    g_shapesList[i].position[0] *= -1;
+    // g_shapesList[i].position[1] *= -1;
   }
 }
 
@@ -294,7 +310,6 @@ function theScream(){
   rightHand.position = [9.0, 10.0,   6.0, 4.0,   8.0, 6.0];
   rightHand.color = faceColor;
   g_shapesList.push(rightHand);
-
 
   // Normalize coordinates
   var normalize_value = 18.0;
